@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { ArrowUpRight, ArrowDownToLine, Plus, X, Pause, Play, Phone, Mail, MapPin } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { ArrowUpRight, ArrowDownToLine, Plus, X, Phone, Mail, MapPin } from 'lucide-react'
 
 const sections = [
   { title: 'Professional Summary', label: 'An introduction to my background', content: <p>Analytical Information Technology student specializing in Applied Artificial Intelligence, with freelance experience in large language model (LLM) benchmarking, structured prompt engineering, and high-precision data annotation. An extensive career in healthcare operations, compliance, and data integrity provides added domain expertise. Proven record of maintaining quality standards, rigorously testing technical workflows, and bridging complex data requirements with clear, reliable execution.</p> },
@@ -36,13 +36,7 @@ function Experience({ title, date, role, points }: { title: string; date: string
 
 export default function Resume() {
   const dialog = useRef<HTMLDialogElement>(null)
-  const video = useRef<HTMLVideoElement>(null)
   const [active, setActive] = useState(0)
-  const [playing, setPlaying] = useState(false)
-
-  useEffect(() => {
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.current?.play().catch(() => {})
-  }, [])
 
   function openSection(index: number) {
     setActive(index)
@@ -54,10 +48,10 @@ export default function Resume() {
   return <main className="resume-page">
     <div className="resume-sheet">
       <header className="resume-header">
-        <div className="header-top"><span className="eyebrow">PERSONAL RÉSUMÉ</span><span className="edition">XW / RESUME</span></div>
+        <div className="header-top"><span className="eyebrow">PERSONAL RÉSUMÉ</span></div>
         <div className="identity-row">
           <div className="identity"><h1>XAVIER<br />WASHINGTON<span className="name-period">.</span></h1></div>
-          <div className="logo-wrap"><video ref={video} src="/xavier-logo.mp4" muted loop playsInline preload="auto" aria-label="Xavier Washington animated professional logo" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} /><button className="video-control" aria-label={playing ? 'Pause animated logo' : 'Play animated logo'} onClick={() => playing ? video.current?.pause() : video.current?.play().catch(() => {})}>{playing ? <Pause size={12} /> : <Play size={12} />}</button></div>
+          <div className="logo-wrap"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20-%20October%2005%2C%202026%20at%2012.45.35%20%281%29-k36cF2BOD1IlTXecPDRHAtiHQ70ExE.png" alt="X/A.I. black-and-white circular professional logo" width={144} height={144} /></div>
         </div>
         <address className="contact-details">
           <a href="tel:+17163598840"><Phone size={14} />(716) 359-8840</a>
@@ -68,12 +62,12 @@ export default function Resume() {
       </header>
       <section className="section-directory" aria-label="Résumé sections">
         <div className="directory-intro"><span>EXPLORE MY RÉSUMÉ</span><span>Click a section to discover more <ArrowDownToLine size={12} /></span></div>
-        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-number">0{index + 1}</span><span className="section-text"><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span><span className="open-icon"><Plus size={20} strokeWidth={1.25} /></span></button></h2>)}
+        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span><span className="open-icon"><Plus size={20} strokeWidth={1.25} /></span></button></h2>)}
       </section>
       <footer className="resume-footer"><span>Let&apos;s connect.<a href="mailto:xfw1228@gmail.com">Start a conversation <ArrowUpRight size={14} /></a></span><a className="download-link" href="/xavier-washington-resume.pdf" download><ArrowDownToLine size={15} />Download résumé<span className="pdf-label">PDF</span></a></footer>
     </div>
     <dialog ref={dialog} className="resume-dialog" aria-labelledby="section-dialog-title" onClose={restoreScroll} onClick={event => { if (event.target === dialog.current) dialog.current.close() }}>
-      <div className="dialog-inner"><div className="dialog-top"><span className="eyebrow">XAVIER WASHINGTON / 0{active + 1}</span><button className="close-dialog" aria-label="Close section" onClick={() => dialog.current?.close()}><X size={21} /></button></div><h2 id="section-dialog-title">{sections[active].title}</h2><div className="dialog-body">{sections[active].content}</div><div className="dialog-bottom"><span>0{active + 1} / 04</span><button onClick={() => { setActive((active + 1) % sections.length); dialog.current?.scrollTo(0, 0) }}>Next section <ArrowUpRight size={16} /></button></div></div>
+      <div className="dialog-inner"><div className="dialog-top"><span className="eyebrow">XAVIER WASHINGTON</span><button className="close-dialog" aria-label="Close section" onClick={() => dialog.current?.close()}><X size={21} /></button></div><h2 id="section-dialog-title">{sections[active].title}</h2><div className="dialog-body">{sections[active].content}</div><div className="dialog-bottom"><span /><button onClick={() => { setActive((active + 1) % sections.length); dialog.current?.scrollTo(0, 0) }}>Next section <ArrowUpRight size={16} /></button></div></div>
     </dialog>
   </main>
 }
