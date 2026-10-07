@@ -65,7 +65,7 @@ export default function Resume() {
       </header>
       <section className="section-directory" aria-label="Résumé sections">
         <div className="directory-intro"><span>EXPLORE MY RÉSUMÉ</span><span>Click a section to discover more <ArrowDownToLine size={12} /></span></div>
-        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span></span><span className="open-icon"><Plus size={16} /></span></button></h2>)}
+        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span><span className="open-icon"><Plus size={16} /></span></button></h2>)}
       </section>
       <footer className="resume-footer"><span>Let's connect.<span>Start a conversation <ArrowUpRight size={14} /></span></span><span className="download-link disabled" title="Download disabled">Download Resume<span className="pdf-label">PDF</span></span></footer>
     </div>

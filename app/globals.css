@@ -78,6 +78,35 @@ h1 { margin: 0; font-size: clamp(40px, 6.4vw, 78px); font-weight: 700; line-heig
 .dialog-bottom { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--border); font-size: 10px; letter-spacing: 1px; }
 .dialog-bottom button { display: flex; gap: 8px; align-items: center; border: 0; background: none; font-size: 12px; letter-spacing: 0; }
 @media (min-width: 1400px) { .resume-page { padding-top: 64px; } }
-@media (max-width: 650px) { .resume-page { width: 100%; padding: 28px 20px; } .identity-row { gap: 12px; padding-top: 30px; } h1 { font-size: clamp(28px, 7.4vw, 47px); letter-spacing: -1.6px; } .logo-wrap { width: 86px; height: 86px; } .section-trigger { padding: 18px 0; gap: 15px; } .open-icon { width: 27px; height: 27px; } .section-title { font-size: clamp(18px, 4.2vw, 24px); } .skills-list { grid-template-columns: 1fr; } .resume-footer { flex-wrap: wrap; } .dialog-inner { padding: 24px 20px; } }
-@media (max-width: 360px) { .resume-page { padding-inline: 16px; } .logo-wrap { width: 62px; height: 62px; } h1 { font-size: 27px; } .identity-row { gap: 8px; } }
+@media (max-width: 650px) {
+  .resume-page { width: 100%; padding: 28px 20px; }
+  .identity-row { align-items: center; gap: 12px; padding: 26px 0 22px; }
+  .identity { flex: 1 1 auto; }
+  h1 { font-size: clamp(28px, 8.5vw, 47px); letter-spacing: -1.6px; overflow-wrap: normal; }
+  .logo-wrap { width: clamp(68px, 22vw, 86px); height: clamp(68px, 22vw, 86px); }
+  .contact-details { align-items: flex-start; gap: 12px; padding-bottom: 22px; }
+  .contact-details span, .contact-details .linkedin { width: 100%; min-width: 0; overflow-wrap: anywhere; }
+  .linkedin { margin-left: 0; }
+  .directory-intro { align-items: flex-start; padding-top: 21px; }
+  .directory-intro > span:last-child { max-width: 145px; justify-content: flex-end; text-align: right; }
+  .section-trigger { align-items: center; gap: 12px; padding: 20px 0; }
+  .section-text { flex: 1; gap: 6px; }
+  .section-title { font-size: clamp(18px, 5vw, 24px); line-height: 1.15; }
+  .section-description { line-height: 1.4; overflow-wrap: break-word; }
+  .open-icon { width: 30px; height: 30px; }
+  .skills-list { grid-template-columns: 1fr; }
+  .resume-footer { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .resume-footer > span { flex-wrap: wrap; gap: 8px 12px; }
+  .resume-dialog { width: calc(100% - 24px); border-radius: 18px; }
+  .dialog-inner { padding: 24px 20px; }
+  .resume-dialog h2 { font-size: 26px; }
+  .experience-heading { flex-direction: column; align-items: flex-start; gap: 2px; }
+}
+@media (max-width: 360px) {
+  .resume-page { padding-inline: 16px; }
+  .logo-wrap { width: 62px; height: 62px; }
+  h1 { font-size: clamp(25px, 8vw, 29px); letter-spacing: -1.2px; }
+  .identity-row { gap: 8px; }
+  .directory-intro > span:last-child { max-width: 125px; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
