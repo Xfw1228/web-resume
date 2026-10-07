@@ -51,7 +51,7 @@ export default function Resume() {
         <div className="header-top"><span className="eyebrow">PERSONAL RÉSUMÉ</span></div>
         <div className="identity-row">
           <div className="identity"><h1>XAVIER<br />WASHINGTON<span className="name-period">.</span></h1></div>
-          <div className="logo-wrap"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20-%20October%2005%2C%202026%20at%2012.45.35%20%281%29-k36cF2BOD1IlTXecPDRHAtiHQ70Ex" alt="Xavier Washington Logo" /></div>
+          <div className="logo-wrap" aria-label="Xavier Washington X slash A.I. logo" role="img"><span>X/A.I.</span></div>
         </div>
         <address className="contact-details blur-personal-info">
           <span><Phone size={14} />••• ••• ••••</span>
