@@ -51,7 +51,7 @@ export default function Resume() {
         <div className="header-top"><span className="eyebrow">PERSONAL RÉSUMÉ</span></div>
         <div className="identity-row">
           <div className="identity"><h1>XAVIER<br />WASHINGTON<span className="name-period">.</span></h1></div>
-          <div className="logo-wrap"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20-%20October%2005%2C%202026%20at%2012.45.35%20%281%29-k36cF2BOD1IlTXecPDRHAtiHQ70Ex" alt="Xavier Washington" /></div>
+          <div className="logo-wrap"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20-%20October%2005%2C%202026%20at%2012.45.35%20%281%29-k36cF2BOD1IlTXecPDRHAtiHQ70Ex" alt="Xavier Washington Logo" /></div>
         </div>
         <address className="contact-details blur-personal-info">
           <span><Phone size={14} />••• ••• ••••</span>
@@ -62,7 +62,7 @@ export default function Resume() {
       </header>
       <section className="section-directory" aria-label="Résumé sections">
         <div className="directory-intro"><span>EXPLORE MY RÉSUMÉ</span><span>Click a section to discover more <ArrowDownToLine size={12} /></span></div>
-        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span className="section-number">{String(index + 1).padStart(2, '0')}</span><span><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span></span><span className="open-icon"><Plus size={16} /></span></button></h2>)}
+        {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span></span><span className="open-icon"><Plus size={16} /></span></button></h2>)}
       </section>
       <footer className="resume-footer"><span>Let's connect.<span>Start a conversation <ArrowUpRight size={14} /></span></span><span className="download-link disabled" title="Download disabled">Download Resume<span className="pdf-label">PDF</span></span></footer>
     </div>
