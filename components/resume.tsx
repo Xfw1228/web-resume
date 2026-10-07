@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { ArrowUpRight, ArrowDownToLine, Plus, X, Phone, Mail, MapPin } from 'lucide-react'
 
@@ -51,7 +52,9 @@ export default function Resume() {
         <div className="header-top"><span className="eyebrow">PERSONAL RÉSUMÉ</span></div>
         <div className="identity-row">
           <div className="identity"><h1>XAVIER<br />WASHINGTON<span className="name-period">.</span></h1></div>
-          <div className="logo-wrap" aria-label="Xavier Washington X slash A.I. logo" role="img"><span>X/A.I.</span></div>
+          <div className="logo-wrap">
+            <Image src="/xai-logo.png" alt="Xavier Washington X slash A.I. logo" width={160} height={160} priority />
+          </div>
         </div>
         <address className="contact-details blur-personal-info">
           <span><Phone size={14} />••• ••• ••••</span>
