@@ -37,7 +37,6 @@ function Experience({ title, date, role, points }: { title: string; date: string
 export default function Resume() {
   const dialog = useRef<HTMLDialogElement>(null)
   const [active, setActive] = useState(0)
-  const [showPersonalInfo, setShowPersonalInfo] = useState(false)
 
   function openSection(index: number) {
     setActive(index)
@@ -54,25 +53,18 @@ export default function Resume() {
           <div className="identity"><h1>XAVIER<br />WASHINGTON<span className="name-period">.</span></h1></div>
           <div className="logo-wrap"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20-%20October%2005%2C%202026%20at%2012.45.35%20%281%29-k36cF2BOD1IlTXecPDRHAtiHQ70Ex" alt="Xavier Washington" /></div>
         </div>
-        <address className={`contact-details ${!showPersonalInfo ? 'blur-personal-info' : ''}`}>
-          <a href="tel:+17163598840" title={showPersonalInfo ? '' : 'Hover to reveal'}><Phone size={14} />(716) 359-8840</a>
-          <a href="mailto:xfw1228@gmail.com" title={showPersonalInfo ? '' : 'Hover to reveal'}><Mail size={14} />xfw1228@gmail.com</a>
-          <span title={showPersonalInfo ? '' : 'Hover to reveal'}><MapPin size={14} />Buffalo, NY, USA</span>
-          <a href="https://www.linkedin.com/in/xavier-w-811675122" target="_blank" rel="noopener noreferrer" className="linkedin">linkedin.com/in/xavier-w-811675122<ArrowUpRight size={15} /></a>
+        <address className="contact-details blur-personal-info">
+          <span><Phone size={14} />••• ••• ••••</span>
+          <span><Mail size={14} />••••••••••••@•••••.com</span>
+          <span><MapPin size={14} />••••••, •• •••</span>
+          <span className="linkedin">linkedin.com/in/••••••••••••••••<ArrowUpRight size={15} /></span>
         </address>
-        <button 
-          className="toggle-personal-info"
-          onClick={() => setShowPersonalInfo(!showPersonalInfo)}
-          aria-label={showPersonalInfo ? 'Hide personal information' : 'Show personal information'}
-        >
-          {showPersonalInfo ? '🔓 Hide Contact Info' : '🔒 Show Contact Info'}
-        </button>
       </header>
       <section className="section-directory" aria-label="Résumé sections">
         <div className="directory-intro"><span>EXPLORE MY RÉSUMÉ</span><span>Click a section to discover more <ArrowDownToLine size={12} /></span></div>
         {sections.map((section, index) => <h2 key={section.title}><button className="section-trigger" onClick={() => openSection(index)} aria-haspopup="dialog"><span className="section-text"><span className="section-number">{String(index + 1).padStart(2, '0')}</span><span><span className="section-title">{section.title}</span><span className="section-description">{section.label}</span></span></span><span className="open-icon"><Plus size={16} /></span></button></h2>)}
       </section>
-      <footer className="resume-footer"><span>Let's connect.<a href="mailto:xfw1228@gmail.com">Start a conversation <ArrowUpRight size={14} /></a></span><a className="download-link" href="/xavier-washington-resume.pdf" download>Download Resume<span className="pdf-label">PDF</span></a></footer>
+      <footer className="resume-footer"><span>Let's connect.<span>Start a conversation <ArrowUpRight size={14} /></span></span><span className="download-link disabled" title="Download disabled">Download Resume<span className="pdf-label">PDF</span></span></footer>
     </div>
     <dialog ref={dialog} className="resume-dialog" aria-labelledby="section-dialog-title" onClose={restoreScroll} onClick={event => { if (event.target === dialog.current) dialog.current.close() }}>
       <div className="dialog-inner"><div className="dialog-top"><span className="eyebrow">XAVIER WASHINGTON</span><button className="close-dialog" aria-label="Close section" onClick={() => dialog.current?.close()}><X size={20} /></button></div><h2 id="section-dialog-title">{sections[active]?.title}</h2><div className="dialog-body">{sections[active]?.content}</div></div>
